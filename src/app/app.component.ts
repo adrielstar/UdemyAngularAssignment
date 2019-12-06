@@ -6,5 +6,23 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'assignmentUdemyAngular';
+  showBtn: boolean = false;
+  showDetails: boolean = false;
+  logDetails: string;
+  detailsLogs: Array<any> = [];
+
+  constructor() {
+    setTimeout(() => {
+      this.showBtn = true;
+    }, 2000);
+  }
+
+  onBtnClick(event) {
+    this.showDetails = !this.showDetails;
+    this.detailsLogs.push(event.timeStamp);
+  }
+
+  getBackgroundColor(i: number): string {
+    return i >= 4 ? 'blue' : null;
+  }
 }
