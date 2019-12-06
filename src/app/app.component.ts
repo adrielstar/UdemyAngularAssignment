@@ -6,23 +6,18 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  showBtn: boolean = false;
   showDetails: boolean = false;
   logDetails: string;
   detailsLogs: Array<any> = [];
 
-  constructor() {
-    setTimeout(() => {
-      this.showBtn = true;
-    }, 2000);
-  }
+  constructor() { }
 
-  onBtnClick(event) {
+  onToggle() {
     this.showDetails = !this.showDetails;
-    this.detailsLogs.push(event.timeStamp);
+    this.detailsLogs.push(new Date());
   }
 
   getBackgroundColor(i: number): string {
-    return i >= 4 ? 'blue' : null;
+    return i >= 4 ? 'blue' : 'transparent';
   }
 }
